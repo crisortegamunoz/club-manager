@@ -17,7 +17,7 @@ export class Player extends Document {
     @Prop({ required: true, unique: true })
     rut: string;
 
-    @Prop({ required: true })
+    @Prop({ required: true, type: Date })
     birthDate: Date;
 
     @Prop({ required: true, unique: true })
@@ -50,8 +50,8 @@ export class Player extends Document {
     })
     role: Role;
 
-    @Prop()
-    lastPaymentDate: Date;
+    @Prop({ type: Date })
+    lastPaymentDate?: Date;
 
 }
 

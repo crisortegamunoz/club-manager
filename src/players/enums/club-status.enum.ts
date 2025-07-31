@@ -1,5 +1,7 @@
 export enum ClubStatus {
   ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
   CONDITIONAL = 'CONDITIONAL',
   EXPELLED = 'EXPELLED',
+  INJURED = 'INJURED'
 }

@@ -1,5 +1,5 @@
 import { IsEmail, IsEnum, IsMongoId, IsOptional, IsString, Matches } from 'class-validator';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional, PartialType } from '@nestjs/swagger';
 import { Role } from '../../common/enums/role.enum';
 
 export class RegisterDTO {
@@ -25,3 +25,5 @@ export class RegisterDTO {
     player?: string;
 
 }
+
+export class UpdateUserDTO extends PartialType(RegisterDTO) { } 

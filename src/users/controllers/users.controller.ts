@@ -27,7 +27,7 @@ export class UsersController {
         return this.userService.register(payload);
     }
 
-    @Put(':email')
+    @Put(':email/password')
     @ApiOperation({ summary: 'Update a user password', description: 'Update a user password by email from the database.' })
     @ApiBody({ type: UpdatePassword, description: 'User new password' })
     @ApiParam({
