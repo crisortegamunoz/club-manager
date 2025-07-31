@@ -7,6 +7,7 @@ import { CreatePlayerDTO, UpdatePlayerDTO } from '../dtos/player.dto';
 import { Player } from '../entities/player.entity';
 import { handleMongoDuplicateKeyError } from '../../common/exceptions/team-exception';
 import { UserService } from '../../users/services/user.service';
+import { ClubStatus } from '../enums/club-status.enum';
 
 @Injectable()
 export class PlayersService {
@@ -47,7 +48,10 @@ export class PlayersService {
         if (!player) {
             throw new NotFoundException(`Player not found`);
         }
-        return this.playerModel.findByIdAndDelete(id);
+        const changes: UpdatePlayerDTO = {
+            clubStatus: ClubStatus.EXPELLED
+        }
+        return await this.playerModel.findByIdAndUpdate(id, { $set: changes }, { new: true }).exec();
     }
 
     async createUserForPlayer(id: string) {
@@ -58,10 +62,6 @@ export class PlayersService {
         const user = await this.userService.createUserByPlayer(id, player);
         console.log(user);
         return user;
-    }
-
-    async registerPayment(id: string) {
-
     }
 
 }

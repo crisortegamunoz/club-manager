@@ -23,7 +23,7 @@ export class UserService {
     }
 
     async findById(id: string) {
-        return this.userModel.findById(id);
+        return this.userModel.findById(id).populate('player').exec();
     }
 
     async delete(id: string) {

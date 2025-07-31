@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Query, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { Filter } from '../../common/filters/filter.dto';
@@ -54,7 +54,7 @@ export class PlayersController {
         return this.playersService.create(payload);
     }
 
-    @Put(':id')
+    @Patch(':id')
     @ApiOperation({ summary: 'Update a player', description: 'Update a player by id from the database.' })
     @ApiBody({ type: UpdatePlayerDTO, description: 'Details of the player to be updated.' })
     @ApiParam({
@@ -81,6 +81,7 @@ export class PlayersController {
     @ApiResponse({ status: 204, description: 'The player has been successfully deleted.' })
     @ApiResponse({ status: 400, description: 'Invalid input.' })
     @ApiResponse({ status: 404, description: 'player not found' })
+    @HttpCode(204)
     delete(@Param('id', MongoIdPipe) id: string) {
         return this.playersService.delete(id);
     }

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors, UseGuards, Patch } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { MongoIdPipe } from '../../common/pipes/mongo-id.pipe';
@@ -27,7 +27,7 @@ export class UsersController {
         return this.userService.register(payload);
     }
 
-    @Put(':email/password')
+    @Patch(':email/password')
     @ApiOperation({ summary: 'Update a user password', description: 'Update a user password by email from the database.' })
     @ApiBody({ type: UpdatePassword, description: 'User new password' })
     @ApiParam({
