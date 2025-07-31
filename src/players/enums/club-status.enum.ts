@@ -1,0 +1,5 @@
+export enum ClubStatus {
+  ACTIVE = 'ACTIVE',
+  CONDITIONAL = 'CONDITIONAL',
+  EXPELLED = 'EXPELLED',
+}
