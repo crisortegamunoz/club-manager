@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 
 import { environments } from './common/config/environments';
 import { UserModule } from './users/user.module';
+import { ImportsModule } from './imports/imports.module';
 
 import * as Joi from 'joi';
 import config from './config';
@@ -34,7 +35,8 @@ const env = process.env.NODE_ENV ?? '.env';
     PlayersModule,
     AuthModule,
     DatabaseModule,
-    UserModule
+    UserModule,
+    ImportsModule
   ],
   controllers: [
     AppController

@@ -1,7 +1,7 @@
 # Club Manager API
 
-Este proyecto es una **API RESTful** desarrollada en [NestJS](https://nestjs.com/) para la gestión de un club de voleibol.  
-Permite administrar jugadores, usuarios y autenticación, manejando roles y estados de pago.
+Este proyecto es una **API RESTful** desarrollada en [NestJS](https://nestjs.com/) para la gestión de un club de voleibol. 
+Permite administrar jugadores, usuarios y autenticación, manejando roles y estados de pago. Puede ser utilizado para gestionar otros tipos de clubes deportivos.
 
 ---
 
